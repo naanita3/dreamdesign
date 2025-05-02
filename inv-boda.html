@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura & Carlos - Nuestra Boda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e8c8c0;
+            --secondary-color: #6d4c5a;
+            --accent-color: #c8a797;
+            --text-color: #333;
+            --light-color: #f9f5f3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .section {
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 20px auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header-content {
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .date-place {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Couple Section */
+        .couple-section {
+            background-color: white;
+        }
+        
+        .couple-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .couple-member {
+            text-align: center;
+            margin: 20px;
+            max-width: 300px;
+        }
+        
+        .couple-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05);
+        }
+        
+        .couple-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Countdown */
+        .countdown-section {
+            background: linear-gradient(rgba(109, 76, 90, 0.8), rgba(109, 76, 90, 0.8)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .countdown-section .section-title {
+            color: white;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-box {
+            margin: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        
+        /* Details */
+        .details-section {
+            background-color: white;
+        }
+        
+        .details-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .detail-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .detail-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .detail-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Gallery */
+        .gallery-section {
+            background-color: var(--light-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        /* RSVP */
+        .rsvp-section {
+            background: linear-gradient(rgba(232, 200, 192, 0.9), rgba(232, 200, 192, 0.9)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            text-align: center;
+        }
+        
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+        }
+        
+        .music-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .couple-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <i class="fas fa-music music-icon" id="musicIcon"></i>
+        <audio id="weddingMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>Laura & Carlos</h1>
+            <p>Nos casamos</p>
+            <div class="date-place" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <p>15 de Junio, 2024</p>
+                <p>Hacienda Los Laureles, Sevilla</p>
+            </div>
+        </div>
+        <div class="scroll-down" id="scrollDown">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Couple Section -->
+    <section class="section couple-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Los Novios</h2>
+            <div class="couple-container">
+                <div class="couple-member" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Novia" class="couple-photo">
+                    <h3 class="couple-name">Laura Martínez</h3>
+                    <p>Hija de Ana y José Martínez</p>
+                </div>
+                <div class="couple-member" data-aos="fade-left" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Novio" class="couple-photo">
+                    <h3 class="couple-name">Carlos Rodríguez</h3>
+                    <p>Hijo de María y Juan Rodríguez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="section countdown-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Faltan</h2>
+            <div class="countdown-container" id="countdown" data-aos="fade-up" data-aos-delay="300">
+                <!-- Countdown will be inserted here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="section details-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Detalles del Evento</h2>
+            <div class="details-container">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="detail-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="detail-title">Fecha</h3>
+                    <p>15 de Junio, 2024</p>
+                    <p>Ceremonia: 16:00 hrs</p>
+                    <p>Recepción: 18:00 hrs</p>
+                </div>
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="detail-title">Ubicación</h3>
+                    <p>Hacienda Los Laureles</p>
+                    <p>Calle Jardines 123, Sevilla</p>
+                    <button class="btn" id="openMapBtn" style="margin-top: 15px;">Ver en Mapa</button>
+                </div>
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="detail-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="detail-title">Recordatorio</h3>
+                    <p>Confirma tu asistencia antes del 1 de Mayo</p>
+                    <p>Código de vestimenta: Formal</p>
+                    <button class="btn" id="addToCalendarBtn" style="margin-top: 15px;">Agregar a Calendario</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Nuestros Momentos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 1" class="gallery-img">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 2" class="gallery-img">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 3" class="gallery-img">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 4" class="gallery-img">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 5" class="gallery-img">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Gallery 6" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Modal -->
+    <div class="modal" id="mapModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; width: 800px; height: 600px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3 style="margin: 0;">Ubicación de la Boda</h3>
+                <button id="closeMapBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.218948264028!2d-5.991246924125226!3d37.39228697205685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1114f7af0d%3A0x9e8a2e9e5a5d5a6d!2sSevilla!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" 
+                    width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- RSVP Section -->
+    <section class="section rsvp-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Confirma tu Asistencia</h2>
+            <div class="rsvp-form" data-aos="zoom-in">
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Número de Invitados</label>
+                        <select id="guests" name="guests" required>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">¿Asistirás?</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="yes">Con gusto asistiré</option>
+                            <option value="no">Lamentablemente no podré asistir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje para los novios (opcional)</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Confirmación</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Laura & Carlos</p>
+            <p>15 de Junio, 2025 - Sevilla</p>
+            <p>Con amor, para nuestros familiares y amigos</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+
+        // Music Player
+        const musicPlayer = document.getElementById('musicPlayer');
+        const musicIcon = document.getElementById('musicIcon');
+        const weddingMusic = document.getElementById('weddingMusic');
+        let isPlaying = false;
+
+        musicPlayer.addEventListener('click', function() {
+            if (isPlaying) {
+                weddingMusic.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-music');
+            } else {
+                weddingMusic.play();
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('June 15, 2025 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `
+                <div class="countdown-box">
+                    <div class="countdown-number">${days}</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number">${hours}</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number">${minutes}</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number">${seconds}</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Scroll Down Button
+        document.getElementById('scrollDown').addEventListener('click', function() {
+            window.scrollBy({
+                top: window.innerHeight - 100,
+                behavior: 'smooth'
+            });
+        });
+
+        // Map Modal
+        const openMapBtn = document.getElementById('openMapBtn');
+        const closeMapBtn = document.getElementById('closeMapBtn');
+        const mapModal = document.getElementById('mapModal');
+
+        openMapBtn.addEventListener('click', function() {
+            mapModal.style.display = 'flex';
+        });
+
+        closeMapBtn.addEventListener('click', function() {
+            mapModal.style.display = 'none';
+        });
+
+        // Add to Calendar
+        document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+            const startDate = new Date('June 15, 2025 16:00:00');
+            const endDate = new Date('June 16, 2025 02:00:00');
+            
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'BEGIN:VEVENT',
+                'SUMMARY:Boda de Laura y Carlos',
+                'DTSTART:' + formatDateForICS(startDate),
+                'DTEND:' + formatDateForICS(endDate),
+                'LOCATION:Hacienda Los Laureles, Calle Jardines 123, Sevilla',
+                'DESCRIPTION:¡Estás invitado a nuestra boda! Por favor confirma tu asistencia.',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\n');
+            
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Boda-Laura-Carlos.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+
+        function formatDateForICS(date) {
+            return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z/, 'Z');
+        }
+
+        // RSVP Form
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the data to a server
+            // For this example, we'll just show an alert
+            const name = document.getElementById('name').value;
+            const attendance = document.getElementById('attendance').value;
+            
+            if (attendance === 'yes') {
+                alert(`¡Gracias ${name} por confirmar tu asistencia! Nos vemos el día de la boda.`);
+            } else {
+                alert(`Gracias ${name} por avisarnos. Lamentamos no poder contar contigo.`);
+            }
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
