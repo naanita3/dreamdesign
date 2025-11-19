@@ -3,21 +3,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 
 
 /* Estilos Base */
 :root {
-    --primary-color: #1d2e3d;
-    --secondary-color: #71a2a4;
-    --accent-color: #e8c07d;
-    --dark-color: #333333;
-    --light-color: #f6f1e9;
+    --primary-color: #8c52ff;
+    --secondary-color: #a0e548;
+    --accent-color: #f6c445;
+    --dark-color: #1d1d1d;
+    --light-color: #f4f4f4;
     --text-color: #555555;
     --white: #ffffff;
     --black: #000000;
-    --font-heading: "Cal Sans", sans-serif;
-    --font-body: "Lexend", sans-serif;
+    --font-heading:'Poppins', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
     --transition: all 0.3s ease;
 }
 
@@ -264,16 +267,17 @@ section {
 }
 
 .btn-hero {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
+    background-color: var(--white);
+    color: var(--primary-color);
     font-weight: 700;
     padding: 15px 40px;
     font-size: 1.1rem;
+    border-radius: 4rem;
 }
 
 .btn-hero:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--dark-color);
 }
 
 .floating-elements {
@@ -659,7 +663,8 @@ section {
 
 /* Sección Contacto */
 .contact {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: #1D1D1D;
+background: linear-gradient(323deg, rgba(29, 29, 29, 1) 0%, rgba(29, 29, 29, 1) 35%, rgba(140, 82, 255, 1) 100%);
     color: var(--white);
 }
 

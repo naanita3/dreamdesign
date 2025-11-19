@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //confetti
 const wrapper = document.getElementById('confetti-wrapper');
-const colors = ['#ff3c38', '#ff8c42', '#f9c80e', '#32ff6a', '#0abde3', '#9b59b6'];
+const colors = ['#ffff', '#f4f4f4', '#ffff', '#f4f4f4', '#ffff', '#f4f4f4'];
 const numberOfConfetti = 80;
 
 for (let i = 0; i < numberOfConfetti; i++) {
