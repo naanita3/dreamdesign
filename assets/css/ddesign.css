@@ -13,7 +13,7 @@
 :root {
     --primary-color: #8c52ff;
     --secondary-color: #a0e548;
-    --accent-color: #f6c445;
+    --accent-color: #a0e548;
     --dark-color: #1d1d1d;
     --light-color: #f4f4f4;
     --text-color: #555555;
@@ -381,8 +381,13 @@ section {
 
 /* Carrusel de Fotos */
 .gallery {
-    background-color: var(--white);
+    background: #1D1D1D;
+    background: linear-gradient(131deg, rgba(29, 29, 29, 1) 0%, rgba(29, 29, 29, 1) 35%, rgba(140, 82, 255, 1) 100%);
     text-align: center;
+}
+
+.gallery h2{
+    color: white;
 }
 
 .gallery h2, .projects h2 {
@@ -534,7 +539,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(139, 90, 43, 0.8);
+    background: rgba(160, 229, 72, 0.8);
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -567,6 +572,7 @@ section {
     color: var(--white);
     padding: 8px 20px;
     font-size: 0.9rem;
+    border-radius: 4rem;
 }
 
 .btn-view:hover {
